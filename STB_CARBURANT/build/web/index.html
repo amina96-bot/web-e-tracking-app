@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Gestion du parc automobile</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/STB_CARBURANT/styles/styles.css" />
+    
+     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+     
+     
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="/STB_CARBURANT/sidebar-02/css/style.css">
+    
+    
+</head>
+<body>
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <div class="row">
+          
+                
+                
+            <div class="col-sm-6">
+             
+            </div>
+            <div class="col-sm-12" > 
+                          
+            </div>
+
+        </div>
+        
+        <div class="row">
+            
+            <form class="modal-content animate" action="login" method="post">
+                <div class="container">                   
+             
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src='/STB_CARBURANT/images/logo.jpg'>
+                            </div>
+                            <div class="col-sm-6">
+                                <br><br><br>                              
+                                <h1 class="text-logo" style='font-size: 30px;'>Gestion du parc automobile</h1> 
+                            </div>
+                        </div>                   
+                          
+                    <label for="username"><b>Nom d'utilisateur</b></label>
+                    <input type="text" placeholder="Entrer nom d'utilisateur" name="username" required>
+
+                    <label for="password"><b>Mot de passe</b></label>
+                    <input type="password" placeholder="Entrer mot de passe" name="password" required>
+
+                    <button type="submit">Connexion</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        
+        //Some operations on String 
+        
+    console.log('hello'.length);
+     
+    console.log('hello'.charAt(0));
+    
+    console.log('hello, world'.replace('world', 'mars'));
+    
+    console.log('hello'.toUpperCase());
+    
+    // For loop in javascript 
+    //let is used for declaring block variables 
+    for (let myLetVariable = 0; myLetVariable < 5; myLetVariable++) {
+  // myLetVariable is only visible in here
+    console.log('ami');
+    }
+    
+    //constants
+    const Pi = 3.14;
+    
+    // the type of a is: undefined because it is not initialized 
+    var a;
+    var name = 'Simon';
+    
+    for (var myVarVariable = 0; myVarVariable < 5; myVarVariable++) {
+    // myVarVariable is visible to the whole function
+    }
+    // myVarVariable is visible also outside the for loop 
+    
+    console.log(6 === myVarVariable);
+    console.log(6 == myVarVariable);
+    
+    console.log(6 != myVarVariable);
+    console.log(6 !== myVarVariable);
+    
+    console.log("javascript objects ");
+    
+    // objects in js are like hashmaps in java     
+   var obj0 = {
+    name: 'Carrot',
+    _for: 'Max', // 'for' is a reserved word, use '_for' instead.
+    details: {
+      color: 'orange',
+      size: 12
+    }
+  };
+  
+  console.log(obj0.details.color );
+  console.log(obj0['details']['size']);
+  
+    var obj = new Object();
+    function Person(name, age) {
+    this.name = name;
+    this.age = age;}
+
+    // Define an object: a set of [key,value]
+    var you = new Person('You', 24);
+
+     console.log(you.name);
+     console.log(you.age);
+     
+     //use var to define a new key (user) for object 
+    var user = prompt('what is your key?')
+    obj[user] = prompt('what is its value?')
+    console.log(obj.user);
+    
+    //Array in javascript 
+    var a = new Array();
+    a[0] = 'dog';
+    a[1] = 'cat';
+    a[2] = 'hen';
+    a.length; // 3
+    console.log(a);
+    
+    
+    // or 
+    
+    var a2=['dog', 'cat', 'hen'];
+    
+    // typeof allows to check type of a variable, here it returns null.. 
+    console.log(typeof(a2[4]));
+
+    a.push('item');
+    console.log(a);
+    
+      console.log(a.toString());
+    
+      console.log(a.toLocaleString());
+      console.log(a.join('-'));
+      console.log(a.slice(2));
+      console.log(a.sort());
+      
+      //functions 
+      
+      function add() {
+        let sum = 0;
+        for (const item of arguments) {
+          sum += item;
+        }
+        return sum;
+      }
+
+      console.log(add(2, 3, 4, 5));
+      
+      //using rest parameters , only in function parameter lists 
+       function add(...args) {
+        let sum = 0;
+        for (const item of args) {
+          sum += item;
+        }
+        return sum;
+      }
+      
+      //calling an anonymuous function from a variable 
+        let avg = function() {
+        let sum = 0;
+        for (const item of arguments) {
+          sum += item;
+        }
+        return sum / arguments.length;
+      };
+       
+       
+       function myFunction(p1, p2) {
+        return p1 * p2;   // The function returns the product of p1 and p2
+      }
+      console.log(myFunction(1,2));
+        
+
+        
+        
+         </script>
+</body>
+</html>

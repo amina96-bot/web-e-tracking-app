@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="engagement" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="08f947ae-0209-491a-8f45-eee541db8715">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="234"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="759"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Adapter "/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8081/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/MyReports/engagement_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/MyReports/engagement"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1113"/>
+	<subDataset name="Dataset1" uuid="790f9b0f-41f5-4850-bb09-137767ea4a82">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Adapter "/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="280"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="720"/>
+		<parameter name="net.sf.jasperreports.csv.source" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_INPUT_STREAM" class="java.io.InputStream" isForPrompting="false"/>
+		<parameter name="CSV_URL" class="java.net.URL" isForPrompting="false"/>
+		<parameter name="CSV_FILE" class="java.io.File" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.encoding" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_READER" class="java.io.Reader" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.column.names" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_COLUMN_NAMES_ARRAY" class="java.lang.String[]" isForPrompting="false"/>
+		<parameter name="CSV_DATE_FORMAT" class="java.text.DateFormat" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.date.pattern" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.field.delimiter" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_NUMBER_FORMAT" class="java.text.NumberFormat" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.number.pattern" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.record.delimiter" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_USE_FIRST_ROW_AS_HEADER" class="java.lang.Boolean" isForPrompting="false"/>
+		<parameter name="CSV_LOCALE" class="java.util.Locale" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.locale.code" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="CSV_TIMEZONE" class="java.util.TimeZone" isForPrompting="false"/>
+		<parameter name="net.sf.jasperreports.csv.timezone.id" class="java.lang.String" isForPrompting="false"/>
+		<parameter name="vehicleId" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[SELECT dbo."VEHICLE".vh_id,
+	dbo."VEHICLE".vh_code,
+	dbo."VEHICLE".vh_immatriculaton,
+	dbo."VEHICLE".vh_creation_date,
+	dbo."VEHICLE".vh_active,
+	dbo."VEHICLE".average_consumption,
+	dbo."MODEL".md_id,
+	dbo."MODEL".md_description,
+	dbo."BRAND".br_id,
+	dbo."BRAND".br_description,
+	dbo."FUEL".fl_id,
+	dbo."FUEL".fl_description
+FROM dbo."VEHICLE"
+	inner join dbo."MODEL" ON 
+	 dbo."VEHICLE".vh_md_id = dbo."MODEL".md_id 
+	inner join dbo."BRAND" ON 
+	 dbo."MODEL".md_br_id = dbo."BRAND".br_id 
+	inner join dbo."FUEL" ON 
+	 dbo."VEHICLE".vh_fl_id = dbo."FUEL".fl_id 
+	 
+	 WHERE 
+	 dbo."VEHICLE".vh_id = $P{vehicleId}]]>
+		</queryString>
+		<field name="vh_id" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="vh_id"/>
+			<property name="com.jaspersoft.studio.field.name" value="vh_id"/>
+		</field>
+		<field name="vh_code" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="vh_code"/>
+			<property name="com.jaspersoft.studio.field.name" value="vh_code"/>
+		</field>
+		<field name="vh_immatriculaton" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="vh_immatriculaton"/>
+			<property name="com.jaspersoft.studio.field.name" value="vh_immatriculaton"/>
+		</field>
+		<field name="vh_creation_date" class="java.sql.Timestamp">
+			<property name="com.jaspersoft.studio.field.label" value="vh_creation_date"/>
+			<property name="com.jaspersoft.studio.field.name" value="vh_creation_date"/>
+		</field>
+		<field name="vh_active" class="java.lang.Boolean">
+			<property name="com.jaspersoft.studio.field.label" value="vh_active"/>
+			<property name="com.jaspersoft.studio.field.name" value="vh_active"/>
+		</field>
+		<field name="average_consumption" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.label" value="average_consumption"/>
+			<property name="com.jaspersoft.studio.field.name" value="average_consumption"/>
+		</field>
+		<field name="md_id" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="md_id"/>
+		</field>
+		<field name="md_description" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="md_description"/>
+		</field>
+		<field name="br_id" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="br_id"/>
+		</field>
+		<field name="br_description" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="br_description"/>
+		</field>
+		<field name="fl_id" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.label" value="fl_id"/>
+		</field>
+		<field name="fl_description" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="fl_description"/>
+		</field>
+		<variable name="immatriculation" class="java.lang.String">
+			<variableExpression><![CDATA[$F{vh_immatriculaton}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="Dataset2" uuid="d0811e31-1c59-4470-b90b-428463d39c39">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Adapter "/>
+		<parameter name="userId" class="java.lang.Integer"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT dbo."USERS".usr_name+ '   '+ dbo."USERS".usr_first_name as  raison_sociale ,
+	dbo."USERS".superviseur,
+	dbo."DEPARTEMENT".dep_description
+FROM dbo."USERS"
+	INNER JOIN dbo."DEPARTEMENT" ON 
+	 dbo."USERS".usr_dep_id = dbo."DEPARTEMENT".dep_id
+	 
+	 
+	 where dbo."USERS".usr_id=$P{userId}]]>
+		</queryString>
+		<field name="raison_sociale" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="raison_sociale"/>
+		</field>
+		<field name="superviseur" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="superviseur"/>
+		</field>
+		<field name="dep_description" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="dep_description"/>
+		</field>
+	</subDataset>
+	<parameter name="net.sf.jasperreports.csv.source" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_INPUT_STREAM" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="CSV_URL" class="java.net.URL" isForPrompting="false"/>
+	<parameter name="CSV_FILE" class="java.io.File" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.encoding" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_READER" class="java.io.Reader" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.column.names" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_COLUMN_NAMES_ARRAY" class="java.lang.String[]" isForPrompting="false"/>
+	<parameter name="CSV_DATE_FORMAT" class="java.text.DateFormat" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.date.pattern" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.field.delimiter" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_NUMBER_FORMAT" class="java.text.NumberFormat" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.number.pattern" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.record.delimiter" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_USE_FIRST_ROW_AS_HEADER" class="java.lang.Boolean" isForPrompting="false"/>
+	<parameter name="CSV_LOCALE" class="java.util.Locale" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.locale.code" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CSV_TIMEZONE" class="java.util.TimeZone" isForPrompting="false"/>
+	<parameter name="net.sf.jasperreports.csv.timezone.id" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="userId" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="vehicleId" class="java.lang.Integer" isForPrompting="false"/>
+	<parameter name="assignmentId" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT 
+
+dbo."USERS".usr_name + '  ' + dbo."USERS".usr_first_name as raison_sociale ,
+	dbo."USERS".usr_name,
+	dbo."USERS".usr_first_name,	
+	dbo."USERS".superviseur,
+	dbo."DEPARTEMENT".dep_description,
+	dbo."USERS".mobile,
+	dbo."VEHICLE".vh_code,
+	dbo."VEHICLE".vh_immatriculaton,
+	dbo."VEHICLE".vh_creation_date,
+	dbo."VEHICLE".vh_active,
+	dbo."VEHICLE".average_consumption,
+	
+	dbo."MODEL".md_description + '  ' +
+	
+	dbo."BRAND".br_description as type_vehicle,
+	dbo."FUEL".fl_id,
+	dbo."FUEL".fl_description
+FROM 
+
+dbo."AFFECTATION" 
+
+INNER JOIN dbo."USERS" ON dbo."AFFECTATION".af_usr_id = dbo."USERS".usr_id
+
+INNER JOIN dbo."VEHICLE" ON dbo."AFFECTATION".af_vh_id = dbo."VEHICLE".vh_id
+
+	INNER JOIN dbo."MODEL" ON 
+	 dbo."VEHICLE".vh_md_id = dbo."MODEL".md_id 
+	INNER JOIN dbo."BRAND" ON 
+	 dbo."MODEL".md_br_id = dbo."BRAND".br_id 
+	INNER JOIN dbo."FUEL" ON 
+	 dbo."VEHICLE".vh_fl_id = dbo."FUEL".fl_id 
+
+INNER JOIN dbo."DEPARTEMENT" ON 
+	 dbo."USERS".usr_dep_id = dbo."DEPARTEMENT".dep_id 
+	
+WHERE 
+	 dbo."AFFECTATION".af_id = $P{assignmentId}]]>
+	</queryString>
+	<field name="raison_sociale" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="raison_sociale"/>
+	</field>
+	<field name="usr_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="usr_name"/>
+	</field>
+	<field name="usr_first_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="usr_first_name"/>
+	</field>
+	<field name="superviseur" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="superviseur"/>
+	</field>
+	<field name="dep_description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="dep_description"/>
+	</field>
+	<field name="mobile" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mobile"/>
+	</field>
+	<field name="vh_code" class="java.lang.String"/>
+	<field name="vh_immatriculaton" class="java.lang.String"/>
+	<field name="vh_creation_date" class="java.sql.Timestamp"/>
+	<field name="vh_active" class="java.lang.Boolean"/>
+	<field name="average_consumption" class="java.math.BigDecimal"/>
+	<field name="type_vehicle" class="java.lang.String"/>
+	<field name="fl_id" class="java.lang.Integer"/>
+	<field name="fl_description" class="java.lang.String"/>
+	<variable name="immatriculation" class="java.lang.String">
+		<variableExpression><![CDATA[$V{immatriculation}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="140" height="106" uuid="b33bf4bd-a85e-4584-ac51-3c8cbc2d1745"/>
+				<imageExpression><![CDATA["C:/Users/akhaldi/Desktop/web project/Etude de lexistant/images/logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="150" y="10" width="350" height="96" uuid="be00e485-8071-42d9-a082-c47a17bd915a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Engagement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="110" width="561" height="40" uuid="d1e82cd9-7868-4189-b1de-04ec196ae4d6"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ CONDITION D’UTILISATION VEHICULE DE SERVICE STAR BRANDS
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-16" y="146" width="561" height="44" uuid="374c43cf-24cc-4a24-b42e-58612c7c8e74"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Le présent engagement a pour objet de fixer les conditions d’utilisation De véhicule affecté à l’utilisateur ci-dessous désigné. 
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="265" height="30" uuid="4ba1e3ae-def6-4f35-8a10-0984357865cd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I-	AFFECTATION DE VEHICULE :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-2" y="249" width="559" height="30" uuid="b17bf4d8-4561-462a-a584-fcd6c81a43d7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[La société STAR BRANDS SPA affecte le véhicule suivant à:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="280" width="100" height="30" uuid="ab474bca-8c3b-4f67-bdb9-e58f5b7e265f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="320" width="100" height="30" uuid="67cef6ad-8025-4706-81e5-3339b3dfa1c8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Département:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="410" width="389" height="30" uuid="bdbb86ea-a065-4688-9530-414ae7bfac99"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unité star brands oued smar lot 83 ZI oued smar]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="282" width="275" height="34" uuid="9760a783-307c-48a1-b2a8-5d0de17536c0"/>
+				<textFieldExpression><![CDATA[$F{raison_sociale}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="322" width="262" height="32" uuid="d2c1f15e-57ac-4a61-848a-0f6c12412629"/>
+				<textFieldExpression><![CDATA[$F{dep_description}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="450" width="122" height="30" uuid="854a89c8-0e4c-4441-aa4c-ce6314550e86"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[N° immatriculation:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="452" width="176" height="20" uuid="8dfda3af-2d2e-4aa7-b10e-e51075b97b4a"/>
+				<textFieldExpression><![CDATA[$F{vh_immatriculaton}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="490" width="122" height="30" uuid="3074b4a0-ce58-4f2d-a979-14cd9304c871"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Type véhicule:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="492" width="176" height="20" uuid="1c6654cc-89c7-41f2-859a-b90b65099c3f"/>
+				<textFieldExpression><![CDATA[$F{type_vehicle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="360" width="100" height="30" uuid="fbe87f09-093a-4033-9ead-cd605afd4469"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Superviseur:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="362" width="262" height="32" uuid="90aab7d8-0b83-4236-abdf-05bb6a00774d"/>
+				<textFieldExpression><![CDATA[$F{superviseur}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="530" width="122" height="30" uuid="2f939ea9-ed93-42ec-8a63-0267f14b48bc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Type carburant:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="532" width="176" height="20" uuid="64b68f20-fda0-4cc3-88c3-6a8ce032ef14"/>
+				<textFieldExpression><![CDATA[$F{fl_description}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="578" width="265" height="30" uuid="4ea59a8f-28ad-4269-bc52-e06c2aa6b2b2"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Engagement d’utilisation :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="764" width="559" height="30" uuid="6f2483c6-00cf-4831-9e42-246b07fac991"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[De respecter les conditions arrêtées par STAR BRANDS SPA dans le présent engagement.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="737" width="158" height="30" uuid="c91b3da6-e20a-4543-8ee5-827ce3eed4a9"/>
+				<textFieldExpression><![CDATA[$F{mobile}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="735" width="112" height="30" uuid="04ef1454-6897-4368-9b9c-be79eacd0c81"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Téléphone:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="697" width="149" height="30" uuid="7dc67fa6-d4ab-4de9-bf07-ee409d2dc6be"/>
+				<textFieldExpression><![CDATA[$F{usr_first_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="695" width="112" height="30" uuid="eac4adf4-5fae-4ac8-bd5e-7b776228af60"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Prénom:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="125" y="657" width="132" height="30" uuid="03d40e1b-fd6f-400f-8197-d1a64ef6edd4"/>
+				<textFieldExpression><![CDATA[$F{usr_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="655" width="100" height="30" uuid="1563bbfa-6f6b-4557-96ff-6d23a5ce4353"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nom:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="622" width="178" height="30" uuid="0b615ac5-d9c0-4e62-9cc5-1e76ba30c1a4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Je soussigné,]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="0" width="279" height="30" uuid="704498c8-e90d-46a5-b9ff-1913c6f79b35"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[II-	OBLIGATIONS DE L’UTILISATEUR :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="36" width="559" height="340" uuid="1f848f30-a7f1-4cbd-ab3e-b43c6df6006e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[1-	Signer un document d’affectation reflétant l’état du Véhicule et les accessoires existants.
+
+A-	CART GRISE +ASSURANCE+CT+VIGNETTE+CRIQUE + ROUES DE SECOURE+ MANIVELLE+TRIANGLE+ GILET+ CARTE TPE   3220160100123261
+
+2-	Vérifier validité de tous les documents y afférent et émettre les réserves éventuelles.
+3-	Veillez à tenir à jour le carnet de bord du Véhicule élaboré par STAR BRANDS SPA.
+4-	L’usage du Véhicule est strictement professionnel.
+5-	Restitution du Véhicule en cas de besoin d’entreprise.
+6-	Le conducteur est tenu de conserver en bon état le Véhicule et de respecter les programmes de maintenance préventive, les programmes d’inspection et de contrôle et les consignes d’entretien donné par le constructeur.
+7-	Le conducteur doit informer le chef de parc de toute panne quelque soit son importance.
+8-	En cas de vol des accessoires du Véhicule ce dernier doit saisir les autorités et faire un rapport au Service Moyens Généraux et Sécurité de STAR BRANDS SPA, Le conducteur est tenu de déclarer tout incident concernant le Véhicule dans les 24 Heures qui suivent par un rapport circonstancié accompagné d’une déclaration d’accident.
+9-	Tout utilisateur Du fourgon STAR BRANDS SPA assume l’entière responsabilité en cas d’infraction au code de la route.
+10-	La conduite du Véhicule affecté ne peut faire l’objet ni d’emprunt ni de changement d’utilisateur sauf sur dérogation accorder par STAR BRANDS SPA.
+11-	A cet engagement est joint le check k List du véhicule par l’utilisateur.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="391" width="279" height="30" uuid="c97fea21-8897-4f2a-b42c-09d841baea7c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[III-	DISPOSITIONS PARTICULIERES :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="432" width="555" height="60" uuid="d23ce954-f453-4324-99ce-19aa6aff56fa"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[En cas d’inobservation des dispositions du présent engagement par l’utilisateur, l’entreprise procédera au retrait définitif du Véhicule sans préavis, nonobstant l’application du règlement intérieur.
+D’autres dispositions peuvent être prises par la société pour préserver le Véhicule qui est un outil de travail.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="492" width="279" height="30" uuid="541fe6ce-99d8-45a7-a2c5-c4041da1a2ec"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IV-	DATE D’EFFET :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="512" width="555" height="20" uuid="f35ac6a3-ce66-4e7d-b954-e48e447fcb36"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Le présent engagement entre en vigueur à partir du jour de sa signature.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="770" width="163" height="20" uuid="e738845c-91d2-4442-ad23-1bf758500880"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[L'utilisateur:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="770" width="100" height="20" uuid="35429f2a-ded7-4666-8438-4abb03314de1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Fait à Alger le: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="349" y="772" width="100" height="30" uuid="33422e87-a5a9-42c0-9b88-637c85f908fc"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
